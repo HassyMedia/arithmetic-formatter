@@ -26,3 +26,21 @@ def arithmetic_arranger(problems, display_answers=False):
         # Check for operand length
         if len(first_number) > 4 or len(second_number) > 4:
             return "Error: Numbers cannot be more than four digits."
+
+        # Arranging each problem
+        longest_operand = max(len(first_number), len(second_number))
+        total_length = longest_operand + 2
+        top_number = first_number.rjust(total_length)
+        bottom_number = operator + second_number.rjust(total_length - 1)
+        dashes = '-' * total_length
+
+        # Adding spacing between problems
+        if index > 0:
+            first_line += "    "
+            second_line += "    "
+            dashes_line += "    "
+            answers_line += "    "
+
+        first_line += top_number
+        second_line += bottom_number
+        dashes_line += dashes
