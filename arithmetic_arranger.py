@@ -44,3 +44,22 @@ def arithmetic_arranger(problems, display_answers=False):
         first_line += top_number
         second_line += bottom_number
         dashes_line += dashes
+
+        # Calculating and displaying answers if requested
+        if display_answers:
+            answer = ""
+            if operator == '+':
+                answer = str(int(first_number) + int(second_number)).rjust(total_length)
+            else:
+                answer = str(int(first_number) - int(second_number)).rjust(total_length)
+            answers_line += answer
+
+    # Forming the final arranged string
+    if display_answers:
+        arranged_problems = "\n".join([first_line, second_line, dashes_line, answers_line])
+    else:
+        arranged_problems = "\n".join([first_line, second_line, dashes_line])
+
+    return arranged_problems
+
+
